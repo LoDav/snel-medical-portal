@@ -1,0 +1,81 @@
+@import url('themes.css');
+
+
+/* 🌿 Compact Mode - Réduction globale */
+body {
+    font-size: 14px;
+    transition: background-color 0.4s, color 0.4s;
+    /* police plus petite */
+}
+
+.header {
+    padding: 10px 15px;
+    /* réduit l’entête */
+}
+
+.header h1 {
+    font-size: 18px;
+    /* titre plus petit */
+}
+
+.sidebar {
+    width: 250px;
+    /* sidebar moins large */
+    padding: 15px;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+}
+
+/* Boutons plus compacts */
+.btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.btn-sm {
+    padding: 3px 8px;
+    font-size: 11px;
+}
+
+/* Listes et items plus serrés */
+.list-item {
+    padding: 8px 8px;
+    font-size: 13px;
+}
+
+/* Tableaux plus denses */
+.data-table th,
+.data-table td {
+    padding: 6px 8px;
+    font-size: 13px;
+}
+
+/* Formulaires plus petits */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 6px 8px;
+    font-size: 13px;
+}
+
+/* Modales */
+.modal-content {
+    padding: 15px;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--gh-border-color);
+    margin: 20px auto;
+    width: 90%;
+}

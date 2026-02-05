@@ -1,0 +1,376 @@
+/* 🎨 Thème clair (par défaut) */
+:root {
+    --gh-bg-color: #ffffff;
+    --gh-text-color: #24292e;
+    --gh-text-color-secondary: #586069;
+    --gh-border-color: #e1e4e8;
+    --gh-header-bg: #f6f8fa;
+    --gh-card-bg: #ffffff;
+    --gh-sidebar-bg: #f6f8fa;
+    --gh-input-bg: #fafbfc;
+    --gh-navbar-link-hover: #e6edf4;
+    --gh-sidebar-active-bg: #eef1f4;
+
+    --gh-primary-blue: #0366d6;
+    --gh-primary-blue-hover: #005cc5;
+    --gh-primary-blue-light-border: #c8e1ff;
+    --gh-primary-blue-lighter-bg: #f0f7ff;
+    --gh-success-green: #28a745;
+    --gh-danger-red: #d73a49;
+    --gh-warning-orange: #f6a137;
+    --gh-info-blue: #0366d6;
+    --gh-focus-shadow: rgba(3, 102, 214, 0.3);
+
+    /* Specifics for Components */
+    --gh-tab-accent: #f9826c;
+    --gh-badge-agent-bg: #e1ecf8;
+    --gh-badge-agent-text: #0366d6;
+    --gh-badge-ayant-droit-bg: #f1f8ff;
+    --gh-badge-ayant-droit-text: #05264c;
+    --gh-badge-success-bg: #dcffe4;
+    --gh-badge-success-text: #1a7f37;
+}
+
+/* 🌙 Thème sombre */
+[data-theme="dark"] {
+    --gh-bg-color: #0d1117;
+    --gh-text-color: #c9d1d9;
+    --gh-text-color-secondary: #8b949e;
+    --gh-border-color: #30363d;
+    --gh-header-bg: #161b22;
+    --gh-card-bg: #161b22;
+    --gh-sidebar-bg: #161b22;
+    --gh-input-bg: #0d1117;
+    --gh-navbar-link-hover: #21262d;
+    --gh-sidebar-active-bg: rgba(88, 166, 255, 0.1);
+    --gh-focus-shadow: rgba(88, 166, 255, 0.3);
+
+    --gh-primary-blue: #58a6ff;
+    --gh-primary-blue-hover: #1f6feb;
+    --gh-primary-blue-light-border: #388bfd;
+    --gh-primary-blue-lighter-bg: rgba(56, 139, 253, 0.1);
+    --gh-success-green: #3fb950;
+    --gh-danger-red: #f85149;
+    --gh-warning-orange: #d29922;
+    --gh-info-blue: #58a6ff;
+
+    /* Specifics for Components */
+    --gh-tab-accent: #f9826c;
+    --gh-badge-agent-bg: rgba(56, 139, 253, 0.15);
+    --gh-badge-agent-text: #58a6ff;
+    --gh-badge-ayant-droit-bg: rgba(139, 148, 158, 0.15);
+    --gh-badge-ayant-droit-text: #c9d1d9;
+    --gh-badge-success-bg: rgba(63, 185, 80, 0.15);
+    --gh-badge-success-text: #3fb950;
+}
+
+
+
+[data-theme="vscode-dark"] {
+    --gh-bg-color: #1e1e1e;
+    /* fond principal */
+    --gh-text-color: #d4d4d4;
+    /* texte gris clair */
+    --gh-text-color-secondary: #858585;
+    --gh-border-color: #3c3c3c;
+    /* bordures discrètes */
+    --gh-header-bg: #252526;
+    /* barre de navigation */
+    --gh-card-bg: #252526;
+    /* cartes/panneaux */
+    --gh-sidebar-bg: #252526;
+    /* sidebar */
+    --gh-input-bg: #1e1e1e;
+    /* champs */
+    --gh-navbar-link-hover: #333333;
+    --gh-sidebar-active-bg: rgba(86, 156, 214, 0.1);
+
+    --gh-primary-blue: #569cd6;
+    /* bleu VS Code */
+    --gh-primary-blue-hover: #3178c6;
+    --gh-primary-blue-light-border: #3c3c3c;
+    --gh-primary-blue-lighter-bg: #252526;
+    --gh-success-green: #6a9955;
+    /* vert IntelliSense */
+    --gh-danger-red: #f44747;
+    /* rouge erreurs */
+    --gh-warning-orange: #dcdcaa;
+    /* jaune/ocre clair */
+    --gh-warning-yellow: #dcdcaa;
+    --gh-info-blue: #9cdcfe;
+    /* bleu clair info */
+    --gh-sidebar-border: #3c3c3c;
+    --gh-focus-shadow: rgba(86, 156, 214, 0.3);
+}
+
+
+[data-theme="gemini-dark"] {
+    --gh-bg-color: #0d1117;
+    --gh-text-color: #c9d1d9;
+    --gh-text-color-secondary: #8b949e;
+    --gh-border-color: #30363d;
+    --gh-header-bg: #161b22;
+    --gh-primary-blue: #58a6ff;
+    --gh-primary-blue-hover: #388bfd;
+    --gh-primary-blue-light-border: #30363d;
+    --gh-primary-blue-lighter-bg: #161b22;
+    --gh-success-green: #2ea043;
+    --gh-danger-red: #f85149;
+    --gh-input-bg: #010409;
+    --gh-shadow: rgba(0, 0, 0, 0.2);
+    --gh-card-bg: #161b22;
+    --gh-sidebar-bg: #0d1117;
+    --gh-sidebar-border: #30363d;
+    --gh-navbar-link-hover: #161b22;
+    --gh-sidebar-active-bg: rgba(88, 166, 255, 0.1);
+    --gh-warning-yellow: #d29922;
+    --gh-focus-shadow: rgba(88, 166, 255, 0.3);
+}
+
+
+[data-theme="dark-accent-green"] {
+    --gh-bg-color: #0d1117;
+    --gh-text-color: #c9d1d9;
+    --gh-text-color-secondary: #8b949e;
+    --gh-border-color: #30363d;
+    --gh-header-bg: #161b22;
+    --gh-primary-blue: #2e8b57;
+    /* Vert pour remplacer le bleu */
+    --gh-primary-blue-hover: #277a4a;
+    /* Vert plus foncé pour le survol */
+    --gh-primary-blue-light-border: #30363d;
+    --gh-primary-blue-lighter-bg: #161b22;
+    --gh-success-green: #2ea043;
+    --gh-danger-red: #f85149;
+    --gh-input-bg: #010409;
+    --gh-shadow: rgba(0, 0, 0, 0.2);
+    --gh-card-bg: #161b22;
+    --gh-sidebar-bg: #0d1117;
+    --gh-sidebar-border: #30363d;
+    --gh-navbar-link-hover: #161b22;
+    --gh-sidebar-active-bg: rgba(46, 139, 87, 0.1);
+    --gh-warning-yellow: #d29922;
+    --gh-focus-shadow: rgba(46, 139, 87, 0.3);
+}
+
+[data-theme="light-accent-green"] {
+    --gh-bg-color: #ffffff;
+    --gh-text-color: #24292e;
+    --gh-text-color-secondary: #586069;
+    --gh-border-color: #e1e4e8;
+    --gh-header-bg: #f6f8fa;
+    --gh-primary-blue: #28a745;
+    /* Vert pour remplacer le bleu */
+    --gh-primary-blue-hover: #218838;
+    /* Vert plus foncé pour le survol */
+    --gh-primary-blue-light-border: #a7d7b8;
+    --gh-primary-blue-lighter-bg: #f0fff4;
+    --gh-success-green: #28a745;
+    --gh-danger-red: #d73a49;
+    --gh-input-bg: #fafbfc;
+    --gh-shadow: rgba(27, 31, 35, 0.04);
+    --gh-card-bg: #ffffff;
+    --gh-sidebar-bg: #f6f8fa;
+    --gh-sidebar-border: #e1e4e8;
+    --gh-navbar-link-hover: #e6edf4;
+    --gh-sidebar-active-bg: #e6edf4;
+    --gh-warning-yellow: #e6c200;
+    --gh-focus-shadow: rgba(40, 167, 69, 0.3);
+}
+
+[data-theme="light-violet"] {
+    --gh-bg-color: #faf9ff;
+    /* Fond très léger violet */
+    --gh-text-color: #2d1b69;
+    /* Violet foncé pour le texte */
+    --gh-text-color-secondary: #6b46c1;
+    /* Violet moyen pour le texte secondaire */
+    --gh-border-color: #d6bcfa;
+    /* Bordures douces violettes */
+    --gh-header-bg: #ffffff;
+    /* Blanc pur pour les en-têtes */
+    --gh-card-bg: #ffffff;
+    /* Blanc pur pour les cartes */
+    --gh-sidebar-bg: #f3f0ff;
+    /* Violet très clair pour la sidebar */
+    --gh-input-bg: #ffffff;
+    /* Blanc pour les champs */
+    --gh-navbar-link-hover: #f3f0ff;
+    /* Violet très clair au survol */
+    --gh-sidebar-active-bg: #f3f0ff;
+
+    --gh-primary-blue: #805ad5;
+    /* Violet principal */
+    --gh-primary-blue-hover: #6b46c1;
+    /* Violet plus foncé au survol */
+    --gh-primary-blue-light-border: #b794f6;
+    --gh-primary-blue-lighter-bg: #f3f0ff;
+    /* Fond très clair pour les statuts */
+
+    --gh-success-green: #48bb78;
+    /* Vert succès */
+    --gh-danger-red: #f56565;
+    /* Rouge danger doux */
+    --gh-warning-orange: #ed8936;
+    /* Orange avertissement */
+    --gh-warning-yellow: #ed8936;
+    --gh-info-blue: #63b3ed;
+    /* Bleu info */
+    --gh-focus-shadow: rgba(128, 90, 213, 0.3);
+    /* Ombre de focus violette */
+}
+
+
+/* 🏢 Corporate Propre (Bleu/Gris) */
+[data-theme="corporate"] {
+    --gh-bg-color: #f7f9fc;
+    --gh-text-color: #334e68;
+    /* Bleu foncé presque noir */
+    --gh-text-color-secondary: #829ab1;
+    --gh-border-color: #dfe3eb;
+    --gh-header-bg: #ffffff;
+    --gh-card-bg: #ffffff;
+    --gh-sidebar-bg: #ffffff;
+    --gh-input-bg: #f7f9fc;
+    --gh-navbar-link-hover: #eef2f7;
+    --gh-sidebar-active-bg: #eef2f7;
+
+    --gh-primary-blue: #2962ff;
+    /* Bleu primaire */
+    --gh-primary-blue-hover: #0052cc;
+    --gh-primary-blue-light-border: #b3ccff;
+    --gh-primary-blue-lighter-bg: #f7f9fc;
+
+    --gh-success-green: #37b24d;
+    --gh-danger-red: #f03e3e;
+    --gh-warning-orange: #ffa800;
+    --gh-warning-yellow: #ffa800;
+    --gh-info-blue: #2962ff;
+    --gh-focus-shadow: rgba(41, 98, 255, 0.2);
+}
+
+
+/* 🌿 Nature & Santé (Vert Doux) */
+[data-theme="nature-health"] {
+    --gh-bg-color: #f6f5f3;
+    /* Beige très clair */
+    --gh-text-color: #4b4453;
+    /* Violet foncé/Gris */
+    --gh-text-color-secondary: #8c8694;
+    --gh-border-color: #e0e0e0;
+    --gh-header-bg: #ffffff;
+    --gh-card-bg: #ffffff;
+    --gh-sidebar-bg: #f6f5f3;
+    --gh-input-bg: #ffffff;
+    --gh-navbar-link-hover: #e6e4e1;
+    --gh-sidebar-active-bg: rgba(76, 175, 80, 0.1);
+
+    --gh-primary-blue: #4caf50;
+    /* Vert Médical (Primary) */
+    --gh-primary-blue-hover: #388e3c;
+    --gh-primary-blue-light-border: #c8e6c9;
+    --gh-primary-blue-lighter-bg: #f3fff3;
+
+    --gh-success-green: #81c784;
+    /* Vert clair */
+    --gh-danger-red: #e57373;
+    /* Rouge doux */
+    --gh-warning-orange: #ffb74d;
+    --gh-warning-yellow: #ffb74d;
+    --gh-info-blue: #64b5f6;
+    --gh-focus-shadow: rgba(76, 175, 80, 0.3);
+}
+
+/* ⚕️ Thème Médical / Clinique (Clair, Bleu & Vert Professionnel) */
+[data-theme="medical"] {
+    --gh-bg-color: #f9fbfd;
+    --gh-text-color: #333333;
+    --gh-text-color-secondary: #666666;
+    --gh-border-color: #e0e6ed;
+    --gh-header-bg: #ffffff;
+    --gh-card-bg: #ffffff;
+    --gh-sidebar-bg: #f9fbfd;
+    --gh-input-bg: #f9fbfd;
+    --gh-navbar-link-hover: #eef2f7;
+    --gh-sidebar-active-bg: rgba(0, 128, 128, 0.1);
+
+    --gh-primary-blue: #008080;
+    --gh-primary-blue-hover: #006666;
+    --gh-success-green: #4CAF50;
+    --gh-danger-red: #FF6347;
+    --gh-warning-orange: #FFB300;
+    --gh-info-blue: #008080;
+    --gh-focus-shadow: rgba(0, 128, 128, 0.3);
+}
+
+/* 🏥 Thème Médical Vert (Clair avec tons verts médicaux) */
+[data-theme="medical-green"] {
+    --gh-bg-color: #f8fdf9;
+    /* Fond très léger vert menthe */
+    --gh-text-color: #2d3748;
+    /* Gris foncé pour le texte */
+    --gh-text-color-secondary: #718096;
+    /* Gris moyen pour le texte secondaire */
+    --gh-border-color: #e2e8f0;
+    /* Bordures douces bleutées */
+    --gh-header-bg: #ffffff;
+    /* Blanc pur pour les en-têtes */
+    --gh-card-bg: #ffffff;
+    /* Blanc pur pour les cartes */
+    --gh-sidebar-bg: #f0f9f4;
+    /* Vert très clair pour la sidebar */
+    --gh-input-bg: #ffffff;
+    /* Blanc pour les champs */
+    --gh-navbar-link-hover: #f0f9f4;
+    /* Vert très clair au survol */
+    --gh-sidebar-active-bg: #f0f9f4;
+
+    --gh-primary-blue: #38a169;
+    /* Vert médical principal */
+    --gh-primary-blue-hover: #2f855a;
+    /* Vert plus foncé au survol */
+    --gh-primary-blue-light-border: #9ae6b4;
+    --gh-primary-blue-lighter-bg: #f0fff4;
+    /* Fond très clair pour les statuts */
+
+    --gh-success-green: #48bb78;
+    /* Vert succès */
+    --gh-danger-red: #f56565;
+    /* Rouge danger doux */
+    --gh-warning-orange: #ed8936;
+    /* Orange avertissement */
+    --gh-warning-yellow: #ed8936;
+    --gh-info-blue: #63b3ed;
+    /* Bleu info */
+    --gh-focus-shadow: rgba(56, 161, 105, 0.3);
+    /* Ombre de focus verte */
+}
+
+
+
+/* Ajout de transitions pour une fluidité du changement de thème */
+:root,
+[data-theme="dark"],
+[data-theme="vscode-dark"],
+[data-theme="gemini-dark"],
+[data-theme="medical"],
+[data-theme="medical-green"],
+[data-theme="light-violet"] {
+    transition:
+        --gh-bg-color 0.3s ease,
+        --gh-text-color 0.3s ease,
+        --gh-border-color 0.3s ease,
+        --gh-header-bg 0.3s ease,
+        --gh-card-bg 0.3s ease,
+        --gh-sidebar-bg 0.3s ease,
+        --gh-input-bg 0.3s ease,
+        --gh-navbar-link-hover 0.3s ease,
+        --gh-primary-blue 0.3s ease,
+        --gh-primary-blue-hover 0.3s ease,
+        --gh-success-green 0.3s ease,
+        --gh-danger-red 0.3s ease,
+        --gh-warning-orange 0.3s ease,
+        --gh-info-blue 0.3s ease,
+        --gh-sidebar-active-bg 0.3s ease,
+        --gh-sidebar-border 0.3s ease;
+}
