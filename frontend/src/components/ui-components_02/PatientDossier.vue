@@ -11,7 +11,8 @@ import Chart from 'chart.js/auto';
 const props = defineProps({
     patientId: {
         type: [String, Number],
-        required: true
+        required: false,
+        default: null
     },
     isOpen: {
         type: Boolean,
@@ -246,6 +247,7 @@ const renderCharts = () => {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    resizeDelay: 200,
                     plugins: {
                         legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } }
                     },
@@ -274,6 +276,7 @@ const renderCharts = () => {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    resizeDelay: 200,
                     plugins: {
                         legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } }
                     },
@@ -319,10 +322,10 @@ onMounted(() => {
                     </button>
                     <h2>Dossier Médical</h2>
                 </div>
-                <div class="header-right">
-                    <!-- <button class="btn btn-outline"><i class="fa fa-print"></i> Imprimer</button> -->
+                <!-- <div class="header-right">
+                    <button class="btn btn-outline"><i class="fa fa-print"></i> Imprimer</button>
                     <button class="btn btn-primary" @click="emit('close')"><i class="fa fa-times"></i> Fermer</button>
-                </div>
+                </div> -->
             </header>
 
             <div v-if="isLoading" class="dossier-loading">
@@ -473,7 +476,7 @@ onMounted(() => {
                                         <div class="timeline-content">
                                             <div class="timeline-date">{{ formatDateTime(consult.created_at) }}</div>
                                             <div class="timeline-title">{{ consult.motif_consultation || 'Consultation'
-                                            }}
+                                                }}
                                             </div>
                                             <div class="timeline-meta">
                                                 <div class="meta-item">
@@ -506,7 +509,7 @@ onMounted(() => {
                                         <div class="doc-info">
                                             <div class="doc-name">{{ ex.nom_examen }}</div>
                                             <div class="doc-meta">{{ ex.type_examen }} • {{ formatDate(ex.date_examen)
-                                            }}</div>
+                                                }}</div>
                                         </div>
                                         <div class="doc-status"
                                             :class="ex.statut_examen === 'Terminé' ? 'success' : 'pending'">
@@ -557,7 +560,7 @@ onMounted(() => {
                     <!-- RIGHT COLUMN: RELATIONS ET ALERTES -->
                     <div class="dossier-right">
                         <!-- VIGILANCE -->
-                        <div class="section-card vigilance">
+                        <!-- <div class="section-card vigilance">
                             <div class="dossier-card-header danger">
                                 <span><i class="fa fa-exclamation-triangle"></i> Vigilance Médicale</span>
                             </div>
@@ -567,7 +570,7 @@ onMounted(() => {
                                     <span>Allergies: Non renseigné</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- AFFILIATION / AYANTS DROIT -->
                         <div class="section-card">
@@ -620,7 +623,7 @@ onMounted(() => {
 
 <style scoped>
 .dossier-overlay {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -631,14 +634,15 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px; */
+    width: 100%;
 }
 
 .dossier-modal {
     background: var(--gh-bg-color);
     width: 100%;
-    max-width: 1100px;
-    height: 90vh;
+    /* max-width: 1100px;
+    height: 90vh; */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -648,9 +652,9 @@ onMounted(() => {
 }
 
 .dossier-header {
-    padding: 15px 25px;
+    padding: 10px;
     border-bottom: 1px solid var(--gh-border-color);
-    background: var(--gh-header-bg);
+    /*background: var(--gh-header-bg); */
     display: flex;
     justify-content: space-between;
     align-items: center;

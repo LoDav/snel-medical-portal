@@ -452,6 +452,17 @@ const Consultations = {
         return rows[0].count;
     },
 
+    countConsultationsEnAttenteConsultationToday: async () => {
+        const sql = `
+            SELECT COUNT(id_consultation) AS count 
+            FROM consultations c 
+            WHERE c.statut_consultation = 'En attente de consultation'
+            AND c.date_consultation = CURDATE()
+        `;
+        const [rows] = await db.execute(sql);
+        return rows[0].count;
+    },
+
     getConsultationsForPatientToday: async (idPatient) => {
         const sql = `
             SELECT 

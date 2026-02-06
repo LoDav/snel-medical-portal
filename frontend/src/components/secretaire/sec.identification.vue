@@ -331,7 +331,7 @@ onMounted(() => {
     const now = new Date();
     currentTime.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 });
-
+const hide = ref(false);
 </script>
 
 <template>
@@ -342,12 +342,12 @@ onMounted(() => {
             <navbar />
 
             <div class="main-content">
-                <header class="topbar-context">
+                <!-- <header class="topbar-context">
                     <h2 style="font-size: 16px; margin: 0;">Identification & Gestion Patient</h2>
                     <div style="font-size: 13px; color: var(--gh-text-color-secondary);">
                         <i class="fa fa-clock-o"></i> {{ currentDate }} | {{ currentTime }}
                     </div>
-                </header>
+                </header> -->
 
                 <!-- SYSTÈME D'ONGLETS -->
                 <div class="tabs-header">
@@ -402,7 +402,7 @@ onMounted(() => {
                                         <div class="agent-name">{{ searchResult.agent.nom }} {{
                                             searchResult.agent.prenoms }}</div>
                                         <div class="agent-meta">Matricule: {{ searchResult.agent.matricule_snel }} •
-                                            Service: {{ searchResult.agent.service || 'N/A' }}</div>
+                                            Entiter: {{ searchResult.agent.service || 'N/A' }}</div>
 
                                         <!-- Badge Déjà Patient -->
                                         <div v-if="searchResult.agent.is_patient" style="margin-top: 5px;">
@@ -512,16 +512,16 @@ onMounted(() => {
                                     placeholder="Rechercher par nom, prénom ou ID...">
                             </div>
                             <button class="btn btn-primary" @click="toggleComponent = 'createExternPatient'">
-                                <i class="fa fa-plus"></i> Nouveau Patient Manuel
+                                <i class="fa fa-plus"></i> Nouveau Patient Externe
                             </button>
                         </div>
                         
                         <div v-if="toggleComponent == 'patientTable'">
-                            <PatientTable :patients="filteredPatients" :isLoading="isLoading" @triage="sendToTriage"
+                            <PatientTable class="animate-in" :patients="filteredPatients" :isLoading="isLoading" @triage="sendToTriage"
                             @view="openPatientDossier" />
                         </div>
                         <div v-else-if="toggleComponent == 'createExternPatient'">
-                            <CreateExternalPatient @close="toggleComponent = 'patientTable'" @triage="sendToTriage" />
+                            <CreateExternalPatient class="animate-in" @close="toggleComponent = 'patientTable'" @triage="sendToTriage" />
                         </div>
                         
                         
@@ -530,7 +530,7 @@ onMounted(() => {
                     <!-- LISTE DES PATIENTS (Droite) - Masquée dans l'onglet Gestion Patient -->
                     <aside v-if="currentTab !== 'list'" class="patient-list-sidebar">
                         <div class="list-header">
-                            <span>Patients du jour</span>
+                            <span>Patients Créés du jour</span>
                             <span class="count-badge">{{ recentPatients.length }}</span>
                         </div>
                         <div class="recent-patients">

@@ -14,6 +14,8 @@ const props = defineProps({
     }
 });
 
+import PatientDossier from './PatientDossier.vue';
+
 const emit = defineEmits(['triage', 'view']);
 
 const currentUser = computed(() => getUserInfo());
@@ -125,6 +127,18 @@ const getTriageTooltip = (patient) => {
 
     return statusMessages[status] || 'Déjà en visite aujourd\'hui';
 };
+
+const selectedPatient = ref(null);
+const isOpen = ref(false)
+const selectPatient = (patient) => {
+    selectedPatient.value = patient.id_patient;
+    if (selectedPatient.value) isOpen.value = true;
+
+    console.log(selectedPatient.value);
+    return selectedPatient.value;
+};
+
+
 </script>
 
 <template>
@@ -133,88 +147,97 @@ const getTriageTooltip = (patient) => {
             <i class="fa fa-spinner fa-spin"></i> Chargement des patients...
         </div>
         <div v-else>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom Complet</th>
-                        <th>ID Patient</th>
-                        <th>Type</th>
-                        <th>Dernière Visite</th>
-                        <th>Statut Dossier</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="patient in paginatedPatients" :key="patient.id_patient">
-                        <td>
-                            <div class="patient-name-cell">
-                                <div class="avatar-mini">
-                                    <i class="fa fa-user"></i>
+            <div v-if="!isOpen">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom Complet</th>
+                            <th>ID Patient</th>
+                            <th>Type</th>
+                            <th>Dernière Visite</th>
+                            <th>Statut Dossier</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="patient in paginatedPatients" :key="patient.id_patient">
+                            <td>
+                                <div class="patient-name-cell">
+                                    <div class="avatar-mini">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <b>{{ patient.nom }} {{ patient.prenoms }} {{ patient.post_nom }}</b>
                                 </div>
-                                <b>{{ patient.nom }} {{ patient.prenoms }} {{ patient.post_nom }}</b>
-                            </div>
-                        </td>
-                        <td>#{{ patient.id_patient }}</td>
-                        <td>
-                            <span class="badge"
-                                :class="patient.type_patient === 'Agent' ? 'badge-agent' : 'badge-ayant-droit'">
-                                {{ patient.type_patient }}
-                            </span>
-                        </td>
-                        <td>{{ formatDate(patient.derniere_visite) }}</td>
-                        <td>
-                            <span class="badge badge-success">Complet</span>
-                        </td>
-                        <td>
-                            <div class="actions">
-                                <button v-if="isStaff" class="btn-icon btn-triage" :disabled="patient.is_in_triage"
-                                    @click="emit('triage', patient)" :title="getTriageTooltip(patient)">
-                                    <i class="fa"
-                                        :class="patient.is_in_triage ? 'fa-check-circle' : 'fa-stethoscope'"></i>
-                                </button>
-                                <button class="btn-icon" @click="emit('view', patient)" title="Voir détails">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr v-if="patients.length === 0">
-                        <td colspan="6" class="empty-state">
-                            Aucun patient trouvé.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td>#{{ patient.id_patient }}</td>
+                            <td>
+                                <span class="badge"
+                                    :class="patient.type_patient === 'Agent' ? 'badge-agent' : 'badge-ayant-droit'">
+                                    {{ patient.type_patient }}
+                                </span>
+                            </td>
+                            <td>{{ formatDate(patient.derniere_visite) }}</td>
+                            <td>
+                                <span class="badge badge-success">Complet</span>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <button v-if="isStaff" class="btn-icon btn-triage" :disabled="patient.is_in_triage"
+                                        @click="emit('triage', patient)" :title="getTriageTooltip(patient)">
+                                        <i class="fa"
+                                            :class="patient.is_in_triage ? 'fa-check-circle' : 'fa-stethoscope'"></i>
+                                    </button>
+                                    <button class="btn-icon" @click="selectPatient(patient)" title="Voir détails">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr v-if="patients.length === 0">
+                            <td colspan="6" class="empty-state">
+                                Aucun patient trouvé.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <!-- Pagination Controls -->
-            <div v-if="patients.length > itemsPerPage" class="pagination">
-                <div class="pagination-info">
-                    Affichage de {{ (currentPage - 1) * itemsPerPage + 1 }} à {{ Math.min(currentPage *
-                        itemsPerPage,
-                        patients.length) }} sur {{ patients.length }} patients
-                </div>
-                <div class="pagination-buttons">
-                    <button class="btn-page" :disabled="currentPage === 1" @click="goToPage(currentPage - 1)">
-                        <i class="fa fa-chevron-left"></i>
-                    </button>
+                <!-- Pagination Controls -->
+                <div v-if="patients.length > itemsPerPage" class="pagination">
+                    <div class="pagination-info">
+                        Affichage de {{ (currentPage - 1) * itemsPerPage + 1 }} à {{ Math.min(currentPage *
+                            itemsPerPage,
+                            patients.length) }} sur {{ patients.length }} patients
+                    </div>
+                    <div class="pagination-buttons">
+                        <button class="btn-page" :disabled="currentPage === 1" @click="goToPage(currentPage - 1)">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
 
-                    <button v-if="visiblePages[0] > 1" class="btn-page" @click="goToPage(1)">1</button>
-                    <span v-if="visiblePages[0] > 2" class="dots">...</span>
+                        <button v-if="visiblePages[0] > 1" class="btn-page" @click="goToPage(1)">1</button>
+                        <span v-if="visiblePages[0] > 2" class="dots">...</span>
 
-                    <button v-for="page in visiblePages" :key="page" class="btn-page"
-                        :class="{ active: currentPage === page }" @click="goToPage(page)">
-                        {{ page }}
-                    </button>
+                        <button v-for="page in visiblePages" :key="page" class="btn-page"
+                            :class="{ active: currentPage === page }" @click="goToPage(page)">
+                            {{ page }}
+                        </button>
 
-                    <span v-if="visiblePages[visiblePages.length - 1] < totalPages - 1" class="dots">...</span>
-                    <button v-if="visiblePages[visiblePages.length - 1] < totalPages" class="btn-page"
-                        @click="goToPage(totalPages)">{{ totalPages }}</button>
+                        <span v-if="visiblePages[visiblePages.length - 1] < totalPages - 1" class="dots">...</span>
+                        <button v-if="visiblePages[visiblePages.length - 1] < totalPages" class="btn-page"
+                            @click="goToPage(totalPages)">{{ totalPages }}</button>
 
-                    <button class="btn-page" :disabled="currentPage === totalPages" @click="goToPage(currentPage + 1)">
-                        <i class="fa fa-chevron-right"></i>
-                    </button>
+                        <button class="btn-page" :disabled="currentPage === totalPages"
+                            @click="goToPage(currentPage + 1)">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            <div v-else>
+                <patient-dossier v-if="selectedPatient" :is-open="isOpen" :patient-id="selectedPatient" @close="isOpen = false; selectedPatient = null" />
+            </div>
+
+
         </div>
     </div>
 </template>

@@ -138,9 +138,9 @@ onMounted(() => {
                     </button>
                     <h1>Enregistrement Patient Externe</h1>
                 </div>
-                <span class="temp-id-badge">
+                <!-- <span class="temp-id-badge">
                     <i class="fa fa-user-clock"></i> Nouveau
-                </span>
+                </span> -->
             </div>
 
             <form @submit.prevent="handleSubmit">
